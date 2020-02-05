@@ -4,13 +4,13 @@ class Cliente {
   lista(res) {
     const sql = 'SELECT * FROM Clientes'
 
-    executaQuery(res, sql)
+    return executaQuery(sql)
   }
 
-  buscaPorId(res, id) {
+  buscaPorId(id) {
     const sql = `SELECT * FROM Clientes WHERE id=${id}`
 
-    executaQuery(res, sql)
+    executaQuery(sql)
   }
 
   adiciona(item) {
