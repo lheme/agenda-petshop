@@ -14,17 +14,25 @@ conexao.connect(erro => {
 })
 
 const Clientes = new Operacoes('cliente')
+const Pets = new Operacoes('pet')
 
 const  resolvers = {
   Query: {
     status: () => "Servidor Rodando",
     clientes: () => Clientes.lista(),
     cliente: (root, { id }) => 
-      Clientes.buscaPorId(id)
+      Clientes.buscaPorId(id),
+    pets: () => Pets.lista(),
   },
   Mutation: {
     adicionarCliente: (root, params) => 
-      Clientes.adiciona(params)
+      Clientes.adiciona(params),
+    atualizarCliente: (root, params) =>
+      Clientes.atualiza(params),
+    deletarCliente: (root, { id }) =>
+      Clientes.deleta(id),
+    adicionarPet: (root, params) =>
+      Pets.adiciona(params)
   }
 }
 const servidor = new GraphQLServer({
