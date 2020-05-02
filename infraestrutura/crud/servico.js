@@ -29,7 +29,7 @@ class Servico {
     const { id, nome, preco, descricao } = novoItem
     const sql = `UPDATE Servicos SET nome='${nome}', Preco=${preco}, Descricao='${descricao}' WHERE id=${id}`
 
-    return executaQuery(sql).then(()=> novoItem)
+    return executaQuery(sql).then(() => novoItem)
   }
 
   deleta(id) {

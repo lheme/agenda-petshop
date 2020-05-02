@@ -9,13 +9,12 @@ class Operations {
     return cruds[this._entidade].lista()
   }
 
-  buscaPorId( id) {
+  buscaPorId(id) {
     return cruds[this._entidade].buscaPorId(id)
   }
 
-  adiciona( item) {
+  adiciona(item) {
     return cruds[this._entidade].adiciona(item)
-
   }
 
   atualiza(novoItem, id) {

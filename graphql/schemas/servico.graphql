@@ -5,13 +5,13 @@ type Servico {
     descricao: String
 }
 
-type Mutation {
-    adicionarServico(nome: String!, preco: Float!, descricao: String): Servico!
-    atualizarServico(id: ID!, nome: String! , preco: Float!, descricao: String): Servico!
-    deletarServico(id: ID!): ID!
+type Query {
+    servicos: [Servico!]!
+    servico(id: ID!): Servico!
 }
 
-type Query {
-    servicos: [Servico!]!,
-    servico(id: ID!): Servico!
+type Mutation {
+    adicionarServico(nome: String!, preco: Float!, descricao: String): Servico!
+    atualizarServico(id: ID!, nome: String!, preco: Float!, descricao: String): Servico!
+    deletarServico(id: ID!): ID!
 }

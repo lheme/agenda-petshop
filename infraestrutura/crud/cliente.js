@@ -5,17 +5,16 @@ class Cliente {
     const sql = 'SELECT * FROM Clientes; SELECT * FROM Pets'
 
     return executaQuery(sql).then(dados => {
-      const clientes = dados [0]
-      const pets = dados [1]
+      const clientes = dados[0]
+      const pets = dados[1]
 
       return clientes.map(cliente => {
-        const petsCliente = pets.filter(pet =>
-          pet.donoId === cliente.id)
+        const petsCliente = pets.filter(pet => pet.donoId === cliente.id)
 
-          return({
-            ...cliente,
-            pets: petsCliente
-          })
+        return ({
+          ...cliente,
+          pets: petsCliente
+        })
       })
     })
   }
@@ -39,12 +38,12 @@ class Cliente {
     const sql = `INSERT INTO Clientes(nome, CPF) VALUES('${nome}', '${cpf}')`
 
     return executaQuery(sql).then(resposta =>
-        ({
-          id: resposta.insertId,
-          nome,
-          cpf
-        })
-      )
+      ({
+        id: resposta.insertId,
+        nome,
+        cpf
+      })
+    )
   }
 
   atualiza(novoItem) {

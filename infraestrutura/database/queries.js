@@ -1,7 +1,7 @@
 const conexao = require('../conexao')
 
 const executaQuery = (query) => {
-  return  new Promise((resolve, reject) =>{
+  return new Promise((resolve, reject) => {
     conexao.query(query, (erro, resultados, campos) => {
       console.log('executou a query!')
       
@@ -10,8 +10,12 @@ const executaQuery = (query) => {
       } else {
         resolve(resultados)
       }
+  
     })
-  }) 
+  })
+  
+  
+  
 }
 
 module.exports = executaQuery
